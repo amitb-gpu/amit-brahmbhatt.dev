@@ -12,4 +12,16 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const work = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/work" }),
+  schema: z.object({
+    title: z.string(),
+    area: z.enum(["ai-gpu", "trustworthy", "quantum"]),
+    problem: z.string(),
+    proof: z.string(),
+    github: z.string().url(),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { blog, work };
