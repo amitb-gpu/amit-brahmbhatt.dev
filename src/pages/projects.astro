@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import { projects } from "../data/projects";
+
+const orgs = [
+  {
+    id: "amitb-gpu",
+    title: "GPU & AI infrastructure",
+    url: "https://github.com/amitb-gpu",
+  },
+  {
+    id: "amitb-quantum",
+    title: "Quantum, security & AI systems",
+    url: "https://github.com/amitb-quantum",
+  },
+] as const;
+---
+
+<Base title="Projects">
+  <section>
+    <h2>Projects</h2>
+    <p class="meta" style="margin-bottom: 2rem;">
+      Things I've built or am building, across two GitHub accounts. New repos get showcased here as they ship.
+    </p>
+    {orgs.map((org) => (
+      <div style="margin-bottom: 2.5rem;">
+        <h3 style="margin-bottom: 1rem;">
+          <a href={org.url} target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">
+            <span class="prompt">$</span> github.com/{org.id}
+          </a>
+          <span class="meta"> — {org.title}</span>
+        </h3>
+        {projects
+          .filter((p) => p.org === org.id)
+          .map((p) => (
+            <div class="card">
+              <h3>
+                <a href={p.url} target="_blank" rel="noopener">{p.name}</a>
+              </h3>
+              <p>{p.description}</p>
+              <div class="tags">{p.tags.map((t) => <span class="tag">{t}</span>)}</div>
+            </div>
+          ))}
+      </div>
+    ))}
+  </section>
+</Base>
