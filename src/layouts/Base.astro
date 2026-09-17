@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = site.description } = Astro.props;
+const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/"><span class="prompt">$</span> {site.domain}</a>
+        <nav>
+          <a href="/blog" class={path.startsWith("/blog") ? "active" : ""}>Blog</a>
+          <a href="/projects" class={path.startsWith("/projects") ? "active" : ""}>Projects</a>
+          <a href="/ideas" class={path.startsWith("/ideas") ? "active" : ""}>Ideas</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} {site.name} · {site.location}</span>
+        <span>
+          {site.socials.map((s) => (
+            <a href={s.url} target="_blank" rel="noopener">{s.label}</a>
+          ))}
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
