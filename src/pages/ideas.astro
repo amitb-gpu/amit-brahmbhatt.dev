@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { ideas } from "../data/ideas";
+---
+
+<Base title="Ideas">
+  <section>
+    <h2>Ideas</h2>
+    <p class="meta" style="margin-bottom: 1.5rem;">
+      Half-formed thoughts, experiments, and things I might build next. Some become projects; most just live here.
+    </p>
+    {ideas.map((i) => (
+      <div class="card">
+        <span class={`status ${i.status}`}>{i.status}</span>
+        <h3>{i.title}</h3>
+        <p>{i.description}</p>
+      </div>
+    ))}
+  </section>
+</Base>
