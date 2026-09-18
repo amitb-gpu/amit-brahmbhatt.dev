@@ -9,6 +9,7 @@ const byId = Object.fromEntries(work.map((w) => [w.id.replace(/\.md$/, ""), w]))
 const areas = [
   {
     id: "ai-gpu",
+    index: "01",
     title: "AI & GPU Systems",
     blurb:
       "Making accelerated computing actually faster — CUDA performance engineering, GPU workload infrastructure, and the economics of LLM inference.",
@@ -16,6 +17,7 @@ const areas = [
   },
   {
     id: "trustworthy",
+    index: "02",
     title: "Trustworthy / Secure AI",
     blurb:
       "Evidence over vibes — authorization with provenance, adjudication that tries to falsify itself, and reliability layers for agent systems.",
@@ -23,6 +25,7 @@ const areas = [
   },
   {
     id: "quantum",
+    index: "03",
     title: "Quantum & Scientific Computing",
     blurb:
       "Quantum protocols, error correction, and benchmarks run against real hardware — including honest null results.",
@@ -33,6 +36,7 @@ const areas = [
 
 <Base>
   <div class="hero">
+    <p class="eyebrow">Portfolio — AI systems · Security · Quantum</p>
     <h1>Hi, I'm {site.name}.</h1>
     <p class="tagline">{site.tagline}</p>
     <p class="lede">
@@ -41,40 +45,53 @@ const areas = [
       the core of it, and the <a href="/projects">full repository catalog</a> has
       the rest.
     </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#areas">Explore the work ↓</a>
+      <a class="btn btn-ghost" href="https://github.com/amitb-gpu" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
   </div>
 
-  {areas.map((area) => (
-    <section>
-      <h2>{area.title}</h2>
-      <p class="area-blurb">{area.blurb}</p>
-      {area.items.map((slug) => {
-        const w = byId[slug];
-        if (!w) return null;
-        return (
-          <div class="card">
-            <h3><a href={`/work/${slug}`}>{w.data.title}</a></h3>
-            <p class="fact"><span class="lbl">problem</span><span class="txt">{w.data.problem}</span></p>
-            <p class="fact"><span class="lbl">proof</span><span class="txt">{w.data.proof}</span></p>
-            <div class="links">
-              <a href={`/work/${slug}`}>case study →</a>
-              <a href={w.data.github} target="_blank" rel="noopener">github ↗</a>
-            </div>
-          </div>
-        );
-      })}
-    </section>
-  ))}
+  <div id="areas">
+    {areas.map((area) => (
+      <section class="reveal">
+        <div class="section-head">
+          <span class="index">{area.index} — {area.id === "ai-gpu" ? "AI & GPU" : area.id === "trustworthy" ? "Trustworthy AI" : "Quantum"}</span>
+          <h2>{area.title}</h2>
+          <p class="lede">{area.blurb}</p>
+        </div>
+        <div class="tile-grid">
+          {area.items.map((slug) => {
+            const w = byId[slug];
+            if (!w) return null;
+            return (
+              <article class="tile">
+                <h3><a href={`/work/${slug}`}>{w.data.title}</a></h3>
+                <p class="problem-text"><span class="kicker problem">Problem</span>{w.data.problem}</p>
+                <div class="evidence"><span class="kicker evidence">Evidence</span>{w.data.proof}</div>
+                <div class="tile-links">
+                  <a class="btn btn-primary btn-sm" href={`/work/${slug}`}>Read case study →</a>
+                  <a class="btn btn-ghost btn-sm" href={w.data.github} target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+  </div>
 
-  <section>
-    <h2><a href="/about">About →</a></h2>
-    <p class="area-blurb">
-      Software engineering leader and technical founder working across AI
-      systems, security, and HPC — from CUDA kernels on an RTX 5090 to
-      post-quantum protocols. Based in {site.location}.
-    </p>
-    <p>
-      <span class="prompt">$</span> Building in AI infrastructure, security, or
-      quantum? <a href="/about">Let's talk →</a>
-    </p>
+  <section class="reveal">
+    <div class="cta-panel">
+      <h2><a href="/about">About</a></h2>
+      <p>
+        Software engineering leader and technical founder working across AI
+        systems, security, and HPC — from CUDA kernels on an RTX 5090 to
+        post-quantum protocols. Based in {site.location}.
+      </p>
+      <p style="font-weight: 600; color: var(--text);">
+        Building in AI infrastructure, security, or quantum?
+      </p>
+      <a class="btn btn-primary" href="/about">Let's talk →</a>
+    </div>
   </section>
 </Base>
