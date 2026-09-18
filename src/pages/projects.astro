@@ -19,16 +19,19 @@ const statusFilters = ["all", "active", "quiet", "archived"] as const;
 ---
 
 <Base title="Projects" description="Full repository catalog across both GitHub accounts, filterable by category and status.">
-  <section>
+  <div class="page-head">
+    <p class="eyebrow">Catalog</p>
     <h2>Projects</h2>
-    <p class="meta" style="margin-bottom: 1.5rem;">
+    <p class="lede">
       Every public repository across both GitHub accounts. Filter by category
       and status — or start with the <a href="/">six featured case studies</a>.
     </p>
+  </div>
 
+  <section style="padding-top: 1.75rem;">
     <div class="filters">
       <div class="filter-group" data-filter="area">
-        <span class="lbl">category</span>
+        <span class="lbl">Category</span>
         {areaFilters.map((a) => (
           <button class={`chip${a === "all" ? " on" : ""}`} data-value={a}>
             {a === "all" ? "All" : areaLabels[a]}
@@ -36,7 +39,7 @@ const statusFilters = ["all", "active", "quiet", "archived"] as const;
         ))}
       </div>
       <div class="filter-group" data-filter="status">
-        <span class="lbl">status</span>
+        <span class="lbl">Status</span>
         {statusFilters.map((s) => (
           <button class={`chip${s === "all" ? " on" : ""}`} data-value={s}>
             {s === "all" ? "All" : s}
@@ -48,12 +51,12 @@ const statusFilters = ["all", "active", "quiet", "archived"] as const;
 
     {orgs.map((org) => (
       <div class="org-section" data-org={org.id} style="margin-bottom: 2.5rem;">
-        <h3 style="margin-bottom: 1rem;">
-          <a href={org.url} target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">
-            <span class="prompt">$</span> github.com/{org.id}
-          </a>
-          <span class="meta"> — {org.title}</span>
-        </h3>
+        <div class="org-head">
+          <h3>
+            <a href={org.url} target="_blank" rel="noopener">github.com/{org.id}</a>
+            <span class="meta"> — {org.title}</span>
+          </h3>
+        </div>
         {projects
           .filter((p) => p.org === org.id)
           .map((p) => (
@@ -61,7 +64,7 @@ const statusFilters = ["all", "active", "quiet", "archived"] as const;
               <h3>
                 <a href={p.url} target="_blank" rel="noopener">{p.name}</a>
               </h3>
-              <p class="meta">{areaLabels[p.area]} · {p.status}</p>
+              <p class="meta"><span class={`dot ${p.status}`}></span>{areaLabels[p.area]} · {p.status}</p>
               <p>{p.description}</p>
               <div class="tags">{p.tags.map((t) => <span class="tag">{t}</span>)}</div>
             </div>
