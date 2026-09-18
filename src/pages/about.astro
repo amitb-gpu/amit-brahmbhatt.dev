@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Base title="About" description="About Amit Brahmbhatt — software engineering leader and technical founder.">
+  <section>
+    <h2>About</h2>
+    <p>
+      I'm Amit Brahmbhatt, a software engineering leader and technical founder
+      working across AI systems, cybersecurity, and high-performance computing.
+    </p>
+    <p>
+      My work runs from CUDA C++ performance engineering on an RTX 5090, through
+      post-quantum authorization and falsification-first AI adjudication, to
+      quantum communication protocols and benchmarks run against real hardware.
+      Thirty-six public repositories across two GitHub accounts trace the
+      throughline: measure first, trust evidence over intuition, and publish the
+      null results too.
+    </p>
+    <p>
+      On the venture side, I'm building HexaGrid — AI-infrastructure cost
+      optimization, taking it into paid enterprise design partners. I'm based
+      in {site.location}.
+    </p>
+  </section>
+
+  <section>
+    <h2>Collaborate</h2>
+    <p class="area-blurb">
+      I collaborate on hard technical problems — open source, research, or
+      venture — especially in AI infrastructure, security, and quantum systems.
+    </p>
+    <p>
+      <span class="prompt">$</span> The fastest way to reach me is through
+      {site.socials.map((s, i) => (
+        <><a href={s.url} target="_blank" rel="noopener">{s.label}</a>{i < site.socials.length - 1 ? " · " : ""}</>
+      ))}.
+    </p>
+  </section>
+</Base>
