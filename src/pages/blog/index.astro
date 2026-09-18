@@ -9,12 +9,17 @@ const posts = (await getCollection("blog"))
 const fmt = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 ---
 
-<Base title="Blog">
-  <section>
+<Base title="Blog" description="Writing on AI systems, security, and high-performance computing.">
+  <div class="page-head">
+    <p class="eyebrow">Writing</p>
     <h2>Blog</h2>
+    <p class="lede">Notes on what I'm learning and building.</p>
+  </div>
+
+  <section style="padding-top: 1.75rem;">
     {posts.length === 0 && <p class="meta">No posts yet — check back soon.</p>}
     {posts.map((post) => (
-      <div class="post-row">
+      <div class="post-row reveal">
         <div>
           <a href={`/blog/${post.id}`}>{post.data.title}</a>
           <p class="desc">{post.data.description}</p>
