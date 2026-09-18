@@ -4,7 +4,7 @@ export const site = {
   domain: "amit-brahmbhatt.dev",
   tagline: "Software engineering leader & technical founder",
   description:
-    "I build applied AI systems — LLM-powered products, agent infrastructure, and the security and performance layers underneath. This is where I write about what I'm learning and showcase what I'm building.",
+    "I build applied AI systems — LLM-powered applications, agent tools, and the infrastructure that makes them useful, measurable, and reliable. This is where I write about what I'm learning and showcase what I'm building.",
   location: "Milpitas, California",
   socials: [
     { label: "GitHub · GPU", url: "https://github.com/amitb-gpu" },
