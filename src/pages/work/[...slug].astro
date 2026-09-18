@@ -1,0 +1,45 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const work = await getCollection("work");
+  return work.map((entry) => ({
+    params: { slug: entry.id.replace(/\.md$/, "") },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, area, problem, proof, github, tags } = entry.data;
+
+const areaLabels: Record<string, string> = {
+  "ai-gpu": "AI & GPU Systems",
+  trustworthy: "Trustworthy / Secure AI",
+  quantum: "Quantum & Scientific Computing",
+};
+---
+
+<Base title={title} description={problem}>
+  <article class="case">
+    <p class="back"><a href="/">← work</a></p>
+    <h1>{title}</h1>
+    <p class="meta">
+      <span class="prompt">$</span> {areaLabels[area]}
+      {tags.length > 0 && <> · {tags.join(" · ")}</>}
+    </p>
+
+    <div class="brief">
+      <p><span class="prompt">problem&nbsp;</span> {problem}</p>
+      <p><span class="prompt">proof&nbsp;&nbsp;&nbsp;</span> {proof}</p>
+    </div>
+
+    <Content />
+
+    <div class="links" style="margin-top: 2rem; font-size: 0.95rem;">
+      <a href={github} target="_blank" rel="noopener" style="color: var(--link); margin-right: 1rem;">github ↗</a>
+      <a href="/projects" style="color: var(--muted); text-decoration: none;">full catalog →</a>
+    </div>
+  </article>
+</Base>
