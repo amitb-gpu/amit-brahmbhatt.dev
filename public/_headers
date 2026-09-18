@@ -1,0 +1,14 @@
+# Cache policy for amit-brahmbhatt.dev (Cloudflare Pages)
+#
+# HTML documents: always revalidate, never serve stale markup.
+# Every build emits new content-hashed asset URLs, so a fresh
+# document can never reference a stale stylesheet or script.
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Fingerprinted build assets (Astro emits content hashes, e.g.
+# /_astro/about.Cey1m7k6.css): immutable, cacheable for a year.
+# A changed build produces a new URL, so old entries can never
+# shadow new ones.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
