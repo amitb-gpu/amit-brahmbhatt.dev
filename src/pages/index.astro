@@ -12,7 +12,7 @@ const areas = [
     index: "01",
     title: "AI & GPU Systems",
     blurb:
-      "Making AI cheaper and faster to run — the economics of LLM inference, GPU workload infrastructure, and CUDA performance engineering where it counts.",
+      "Investigating the layers underneath AI applications — inference cost, hardware utilization, memory and latency constraints, data movement, and the performance bottlenecks that actually matter.",
     items: ["gada-gpu-analytics", "cachelens"],
   },
   {
@@ -20,7 +20,7 @@ const areas = [
     index: "02",
     title: "Trustworthy / Secure AI",
     blurb:
-      "Evidence over vibes — authorization with provenance, adjudication that tries to falsify itself, and reliability layers for agent systems.",
+      "Evidence over vibes — evaluation, authorization with provenance, adjudication that tries to falsify itself, and reliability layers for agent systems.",
     items: ["proofgate-pq", "decisiongate"],
   },
   {
@@ -28,7 +28,7 @@ const areas = [
     index: "03",
     title: "Quantum & Scientific Computing",
     blurb:
-      "Quantum protocols, error correction, and benchmarks run against real hardware — including honest null results.",
+      "Emerging computing technologies, explored with an engineer's skepticism — quantum protocols, error correction, and benchmarks run against real hardware, including honest null results.",
     items: ["entangl", "q-tensor"],
   },
 ];
@@ -40,9 +40,11 @@ const areas = [
     <h1>Hi, I'm {site.name}.</h1>
     <p class="tagline">{site.tagline}</p>
     <p class="lede">
-      I build applied AI systems — LLM-powered products, agent infrastructure,
-      and the security and performance layers underneath. My work falls into three areas below — six projects are
-      the core of it, and the <a href="/projects">full repository catalog</a> has
+      I build applied AI systems — LLM-powered applications, agent tools, and
+      the infrastructure that makes them useful, measurable, and reliable. My
+      work spans agent systems, AI evaluation and reliability, inference
+      economics, security and authorization, and performance engineering when
+      it matters. Six projects below are the core of it — the <a href="/projects">full repository catalog</a> has
       the rest.
     </p>
     <div class="hero-actions">
