@@ -156,7 +156,63 @@ article.post blockquote {
   color: var(--muted);
 }
 
-/* Footer */
+/* Work cards: problem + proof */
+.card .fact { margin: 0.5rem 0; font-size: 0.97rem; }
+.card .fact .lbl {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-right: 0.35rem;
+}
+.card .fact span.txt { color: var(--text); }
+.card .links { margin-top: 0.75rem; font-size: 0.9rem; }
+.card .links a { color: var(--link); text-decoration: none; margin-right: 1rem; }
+.card .links a:hover { text-decoration: underline; }
+
+/* Area section headers on homepage */
+.area-blurb { color: var(--muted); font-size: 0.95rem; margin: -0.5rem 0 1rem; }
+
+/* Filter chips (projects page) */
+.filters { margin-bottom: 1.5rem; }
+.filter-group { margin-bottom: 0.6rem; }
+.filter-group .lbl {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-right: 0.5rem;
+}
+.chip {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+  margin: 0 0.3rem 0.3rem 0;
+  cursor: pointer;
+}
+.chip:hover { color: var(--text); border-color: var(--muted); }
+.chip.on { color: var(--accent); border-color: var(--accent-dim); }
+
+/* Case study pages */
+article.case { padding: 2.5rem 0; }
+article.case h1 { font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 0.5rem; }
+article.case .meta { margin-bottom: 1.5rem; }
+article.case h2 { border: none; padding: 0; margin-top: 2rem; }
+article.case a { color: var(--link); }
+.case .brief {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.case .brief p { margin: 0.4rem 0; font-size: 0.97rem; }
+.back { font-size: 0.9rem; }
+.back a { color: var(--muted); text-decoration: none; }
+.back a:hover { color: var(--text); }
 footer.site {
   border-top: 1px solid var(--border);
   margin-top: 3rem;
