@@ -26,9 +26,10 @@ const path = Astro.url.pathname;
       <div class="wrap">
         <a class="brand" href="/"><span class="prompt">$</span> {site.domain}</a>
         <nav>
-          <a href="/blog" class={path.startsWith("/blog") ? "active" : ""}>Blog</a>
-          <a href="/projects" class={path.startsWith("/projects") ? "active" : ""}>Projects</a>
-          <a href="/ideas" class={path.startsWith("/ideas") ? "active" : ""}>Ideas</a>
+          <a href="/" class={path === "/" || path.startsWith("/work") ? "active" : ""}>Work</a>
+          <a href="/blog" class={path.startsWith("/blog") ? "active" : ""}>Writing</a>
+          <a href="/lab" class={path.startsWith("/lab") ? "active" : ""}>Lab</a>
+          <a href="/about" class={path.startsWith("/about") ? "active" : ""}>About</a>
         </nav>
       </div>
     </header>
