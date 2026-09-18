@@ -313,7 +313,7 @@ export const projects: Project[] = [
   },
   {
     name: "entangl",
-    description: "A post-quantum secure communication protocol for AI agents. Every agent-to-agent message is encrypted with CRYSTALS-Kyber1024 and signed with CRYSTALS-Dilithium5 — both NIST-standardized in 2024 (FIPS 203/204) — because harvest-now-decrypt-later adversaries are already recording traffic that Shor's algorithm will eventually open. The stack layers Dilithium identity, Kyber forward-secret encryption, AES-256-GCM with BLAKE2b-HKDF symmetric crypto, an optional BB84 QKD layer (Cirq), and WebSocket/gRPC transport. Purpose-built for the agentic web: agents buying ads, booking travel, and moving money on behalf of humans need messages a quantum computer can't read.",
+    description: "A post-quantum secure communication protocol for AI agents. Every agent-to-agent message is encrypted with ML-KEM-1024 and signed with ML-DSA-87 — NIST-standardized in 2024 as FIPS 203 and FIPS 204 (derived from CRYSTALS-Kyber and CRYSTALS-Dilithium) — because harvest-now-decrypt-later adversaries are already recording traffic that Shor's algorithm will eventually open. The stack layers ML-DSA identity, ML-KEM forward-secret encryption, AES-256-GCM with BLAKE2b-HKDF symmetric crypto, an optional BB84 QKD layer (Cirq), and WebSocket/gRPC transport. Purpose-built for the agentic web: agents buying ads, booking travel, and moving money on behalf of humans, with RSA/ECC-dependent key exchange and signatures replaced by NIST-standardized post-quantum alternatives designed to resist attacks from both classical and known quantum algorithms.",
     url: "https://github.com/amitb-quantum/entangl",
     tags: ["Python"],
     org: "amitb-quantum",
