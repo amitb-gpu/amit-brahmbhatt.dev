@@ -23,23 +23,29 @@ const areaLabels: Record<string, string> = {
 
 <Base title={title} description={problem}>
   <article class="case">
-    <p class="back"><a href="/">← work</a></p>
+    <p class="back"><a href="/">← Work</a></p>
     <h1>{title}</h1>
-    <p class="meta">
-      <span class="prompt">$</span> {areaLabels[area]}
-      {tags.length > 0 && <> · {tags.join(" · ")}</>}
-    </p>
+    <div class="case-meta">
+      <span class="area-chip">{areaLabels[area]}</span>
+      {tags.map((t) => <span class="tag">{t}</span>)}
+    </div>
 
     <div class="brief">
-      <p><span class="prompt">problem&nbsp;</span> {problem}</p>
-      <p><span class="prompt">proof&nbsp;&nbsp;&nbsp;</span> {proof}</p>
+      <div class="brief-row problem">
+        <span class="kicker">Problem</span>
+        <p>{problem}</p>
+      </div>
+      <div class="brief-row evidence">
+        <span class="kicker">Evidence</span>
+        <p>{proof}</p>
+      </div>
     </div>
 
     <Content />
 
-    <div class="links" style="margin-top: 2rem; font-size: 0.95rem;">
-      <a href={github} target="_blank" rel="noopener" style="color: var(--link); margin-right: 1rem;">github ↗</a>
-      <a href="/projects" style="color: var(--muted); text-decoration: none;">full catalog →</a>
+    <div class="case-links">
+      <a class="btn btn-primary btn-sm" href={github} target="_blank" rel="noopener">View on GitHub ↗</a>
+      <a class="btn btn-ghost btn-sm" href="/projects">Full catalog →</a>
     </div>
   </article>
 </Base>
