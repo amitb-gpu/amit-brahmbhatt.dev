@@ -44,7 +44,7 @@ const areaLabels: Record<string, string> = {
     <Content />
 
     <div class="case-links">
-      <a class="btn btn-primary btn-sm" href={github} target="_blank" rel="noopener">View on GitHub ↗</a>
+      <a class="btn btn-primary btn-sm" href={github} target="_blank" rel="noopener">{github.includes("zenodo.org") ? "View Zenodo deposit ↗" : "View on GitHub ↗"}</a>
       <a class="btn btn-ghost btn-sm" href="/projects">Full catalog →</a>
     </div>
   </article>
