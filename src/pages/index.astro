@@ -29,7 +29,7 @@ const areas = [
     title: "Quantum & Scientific Computing",
     blurb:
       "Emerging computing technologies, explored with an engineer's skepticism — quantum protocols, error correction, and benchmarks run against real hardware, including honest null results.",
-    items: ["entangl", "q-tensor"],
+    items: ["entangl", "q-tensor", "elsd"],
   },
 ];
 ---
@@ -44,7 +44,7 @@ const areas = [
       the infrastructure that makes them useful, measurable, and reliable. My
       work spans agent systems, AI evaluation and reliability, inference
       economics, security and authorization, and performance engineering when
-      it matters. Six projects below are the core of it — the <a href="/projects">full repository catalog</a> has
+      it matters. Seven projects below are the core of it — the <a href="/projects">full repository catalog</a> has
       the rest.
     </p>
     <div class="hero-actions">
@@ -72,7 +72,7 @@ const areas = [
                 <div class="evidence"><span class="kicker evidence">Evidence</span>{w.data.proof}</div>
                 <div class="tile-links">
                   <a class="btn btn-primary btn-sm" href={`/work/${slug}`}>Read case study →</a>
-                  <a class="btn btn-ghost btn-sm" href={w.data.github} target="_blank" rel="noopener">GitHub ↗</a>
+                  <a class="btn btn-ghost btn-sm" href={w.data.github} target="_blank" rel="noopener">{w.data.github.includes("zenodo.org") ? "Zenodo deposit ↗" : "GitHub ↗"}</a>
                 </div>
               </article>
             );
